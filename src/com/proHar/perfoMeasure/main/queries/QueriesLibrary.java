@@ -11,7 +11,13 @@ public class QueriesLibrary {
 	public static String deleteFromEntries = "DELETE FROM Resources";
 	public static String moveResToHistory1 = "INSERT INTO Resource_History(Resource_ID,TestScenarioID,Application_ID,Page_ID,Res_ElementName,Res_Duration,Res_DateTimes,Res_StartTimes,Res_EndTimes) SELECT * FROM Resources; ";
 	public static String deleteReferencialConstrains = "ALTER TABLE Resource_History DROP CONSTRAINT ResourcesResource_History";
-
+	
+	public static String authQuery() {
+		String authenticationTest = "select a.TestScenarioName, b.Application_NAME from TestScenario a inner join Application_Name b on a.TestScenarioID=b.TestScenarioID";
+		return authenticationTest;
+	}
+	
+	
 	/*
 	 * Query To find and Drop the Referencial Integrity Constrains(Access):
 	 *

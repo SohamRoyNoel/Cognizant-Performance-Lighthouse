@@ -17,7 +17,7 @@ public class SSMSUtils {
 	public static int setTestCaseName(String testScenarioName, String projectName){
 
 		int holdID = 0;
-//		String databaseURL = AccessDataMigrationCredentials.databaseConnectionURL;
+		//		String databaseURL = AccessDataMigrationCredentials.databaseConnectionURL;
 		String sql = "select * from TestScenario";
 		String insertSQL = "insert into TestScenario (TestScenarioName, ProjectName) values (?,?);";
 
@@ -34,7 +34,8 @@ public class SSMSUtils {
 				if (fullname.equalsIgnoreCase(ScenarioName)) {
 					holdID = id;
 					flag = true;
-				}                }
+				}                
+			}
 
 			if (flag == false) {
 				PreparedStatement preparedStatement = connection.prepareStatement(insertSQL);
@@ -64,7 +65,7 @@ public class SSMSUtils {
 
 	public static int getApplicationID(String getApplicationName, int ScenerioID){
 		int holdID = 0;
-//		String databaseURL = AccessDataMigrationCredentials.databaseConnectionURL;
+		//		String databaseURL = AccessDataMigrationCredentials.databaseConnectionURL;
 		String sql = "select * from Application_Name";
 		String insertSQL = "insert into Application_Name (Application_NAME, TestScenarioID) values (?,?);";
 		try (Connection connection = SSMSDataMigrationCredentials.getSSMSConnection()) {
@@ -115,7 +116,7 @@ public class SSMSUtils {
 
 	public static int getPagerId(String pageName, int appID, int scenerioID){
 		int holdID = 0;
-//		String databaseURL = AccessDataMigrationCredentials.databaseConnectionURL;
+		//		String databaseURL = AccessDataMigrationCredentials.databaseConnectionURL;
 		String sql = "select * from Page_Name";
 		String insertSQL = "insert into Page_Name (TestScenarioID, Application_ID, Page_NAME) values (?,?,?);";
 
